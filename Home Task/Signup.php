@@ -13,7 +13,7 @@ include 'Controller/temp1.php';
 			<form action="" method="post">
 			
 			<fieldset>
-			<h2><?php echo $err_db_error; ?></h2>
+			<h3><?php echo $err_db_error; ?></h3>
 				 <table align="center">
 					<tr>
 					<br><br><br><br><br><br>

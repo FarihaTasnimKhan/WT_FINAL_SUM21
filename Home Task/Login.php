@@ -1,6 +1,6 @@
 <?php
 
-include 'Controller/temp.php';
+include 'Controller/temp1.php';
 
 ?>
 
@@ -15,7 +15,7 @@ include 'Controller/temp.php';
 			<form action="" method="post">
 			
 			<fieldset>
-			
+
 				 <table align="center">
 					<tr>
 					<br><br><br><br><br><br>
@@ -37,9 +37,10 @@ include 'Controller/temp.php';
 					</tr>
 					<br><br><br>
 					<tr>
-						<td align="center" colspan="2"><input type="submit" name="signup" value="Log In"><br>
+						<td align="center" colspan="2"><input type="submit" name="Login" value="Log In"><br>
 						<span>Not registered yet?</span>
-						<span><a target="_blank" href="Signup.php">Signup</a></span>
+						<span><a target="_blank" href="Signup.php">Signup</a></span><br><br><br><br>
+						<span><h1><?php echo $err_db_error; ?></h1></span>
 						</td>
 					</tr>
 	                

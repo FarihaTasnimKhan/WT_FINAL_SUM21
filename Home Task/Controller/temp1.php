@@ -26,7 +26,7 @@ if(isset($_POST["signup"]))
 	if(empty($_POST["name"]))
 	{
 		$err_name="Name Required";
-		$has_error=false;
+		$has_error=true;
 	}else
 	{
 		$name=$_POST["name"];
@@ -34,7 +34,7 @@ if(isset($_POST["signup"]))
 	if(empty($_POST["uname"]))
 	{
 		$err_uname="Username Required";
-		$has_error=false;
+		$has_error=true;
 	}else
 	{
 		$uname=$_POST["uname"];
@@ -42,7 +42,7 @@ if(isset($_POST["signup"]))
 	if(empty($_POST["password"]))
 	{
 		$err_pass="Password Required";
-		$has_error=false;
+		$has_error=true;
 	}else
 	{
 		$pass=$_POST["password"];
@@ -50,7 +50,7 @@ if(isset($_POST["signup"]))
 	if(empty($_POST["email"]))
 	{
 		$err_email="Email Required";
-		$has_error=false;
+		$has_error=true;
 	}else
 	{
 		$email=$_POST["email"];
@@ -61,10 +61,44 @@ if(isset($_POST["signup"]))
 		if($rs===true){
 			header("Location: Login.php");
 		}
-		$err_db_error= $rs;
+		else {$err_db_error= $rs;}
 		 
 	}
 }
+else if (isset($_POST["Login"]))
+{
+	if(empty($_POST["name"]))
+	{
+		$err_name="Name Required";
+		$has_error=true;
+	}else
+	{
+		$name=$_POST["name"];
+	}
+	if(empty($_POST["password"]))
+	{
+		$err_pass="Password Required";
+		$has_error=true;
+	}else
+	{
+		$pass=$_POST["password"];
+	}
+	
+	if(!$has_error)
+	{
+   $query="select * from signup where Name='$name' and Password='$pass'";
+   $rs=get($query);
+   if(count($rs)>0)
+   {
+	  header("Location: Dashboard.php");
+   }
+   else{
+	  $err_db_error= "Invalid Name and Password.";
+   }
+}
+}
+	
+		
 
 
 function insertUser($name,$uname,$email,$pass)
@@ -73,6 +107,18 @@ function insertUser($name,$uname,$email,$pass)
 	return execute($query);
 	
 	
+}
+
+
+function authenticateUser($name,$pass)
+{
+   $query="select * from signup where Name='$name' and Password='$pass'";
+   $rs=get($query);
+   if(count($rs)>0)
+   {
+	   return true;
+   }
+   return false;
 }
 
 
