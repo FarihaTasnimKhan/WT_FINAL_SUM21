@@ -1,30 +1,42 @@
+
+
+<?php
+	include 'controllers/cat_control.php';
+	$categories = getallcat(); 
+
+?>
+
 <html>
-	<head>
-	<title>All Category</title></head>
-	<body><h1>All Category</h1>	</body>
-</html>	
-	<?php 
-	include 'Dashboard.php';
-	include 'Controller/CategoryController.php';
-	
-	$cat=getAllCat();
-	?>
-	
+<script src="js/search.js"></script>
+<input type="text" name="c" class="form-control" onkeyup="search(this)"  placeholder="Search" align="center">
+<div id="suggestions">
+</div>
+	<body>
+	<h1><?php echo $db_err;?></h1>
+		<form action="" method="POST">
+			<table align="center">
+			<tr align="center" >
+				<td colspan="2">
+					All Category
+				</td>
+			</tr>
 
-
-	<?php
-	
-                    $i=1;
-					foreach($cat as $c)
+			<tbody>
+				<?php
+				$i=1;
+					foreach($categories as $c)
 					{
 						echo "<tr>";
 							echo "<td>$i</td>";
-							echo "<td>".$c["name"]."</td>";
-							echo '<td><a href="Edit_cateogory.php?id='.$c['id'].'">Edit</a></td>';
-							
+							echo "<td>".$c["cname"]."</td>";
+							echo '<td><a href="Edit_cateogories.php?id='.$c['id'].'">Edit</a></td>';
+							echo '<td><a href="Delete_cateogories.php?id='.$c['id'].'">Delete</a></td>';
 						echo "</tr>";
 						$i++;
-	
-	
-	
-	?>
+					}
+				?>
+			</tbody>
+			</table>
+		</form>
+	</body>
+</html> 
