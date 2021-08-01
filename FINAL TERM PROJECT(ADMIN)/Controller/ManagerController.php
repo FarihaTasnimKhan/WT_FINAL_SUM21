@@ -152,9 +152,10 @@ include 'Model/db_config.php';
 			
 			echo "MESSAGE SENT SUCCESSFULLY";
 			}
-			echo "MESSAGE WAS NOT SENT";
+			
 			}
-			echo "MESSAGE WAS NOT SENT DUE TO INVALID USERNAME";
+			else{echo "UNSUCCESSFUL.";}
+			
 					
 			
 	}
@@ -166,17 +167,17 @@ include 'Model/db_config.php';
 		
 		$rs = updateManager($_POST["name"],$_POST["email"],$_POST["address"],$_POST["salary"],$_POST["id"]);
 		if($rs == true){
-			header("Location: AdminDashboard.php");
+			header("Location: All_Manager.php");
 		}
 		$db_err = $rs;
 	}
 	else if(isset($_POST["delete"]))
 	{
-		$rs = deleteManager($_POST["Username"]);
+		$rs = deleteManager($_POST["ID"]);
 		
 		if($rs == true)
 		{
-			header("Location: AdminDashboard.php");
+			header("Location: All_Manager.php");
 		}
 		$db_err = $rs;
 	}
@@ -215,8 +216,8 @@ include 'Model/db_config.php';
 		$rs = get($query);
 	return $rs[0];
 	}
-	function updateManager($name,$email,$address,$id){
-		$query= "update manager set Name='$name',Email='$email',Address='$address',Salary='$salary' where ID=$id";
+	function updateManager($name,$email,$address,$salary,$id){
+		$query= "update manager set Name='$name',Email='$email',Address='$address',Salary=$salary where ID=$id";
 		return execute($query);
 	}
 	function deleteManager($id)
