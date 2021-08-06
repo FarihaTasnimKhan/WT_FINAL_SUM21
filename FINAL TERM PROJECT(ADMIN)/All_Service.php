@@ -4,14 +4,35 @@ $service=getAllService();
 
 ?>
 
-<html><head><title>ALL SERVICE</title></head><body><h2>ALL SERVICE INFORMATION</h2><fieldset>
+<html><html><br><br><a href="AdminDashboard.php">GO BACK TO ADMIN DASHBOARD</a>	
+
+
+<style>
+
+#p1{
+color:blue;
+}
+
+body {
+ text-align: center;
+ background-color: #caebe0;
+}
+#p2{
+color:red;
+}
+	
+</style>
+
+
+
+<head><title>ALL SERVICE</title></head><body><h2 id="p1">ALL SERVICE INFORMATION</h2><fieldset>
 <form> <table><table align="center" >
 				
-<tr><td>NO.</td>
-<td>SERVICE 1</td>
-<td>SERVICE 2</td>
-<td>SERVICE 3</td>
-<td>REQUEST</td>
+<tr><td id="p2">NO.</td>
+<td id="p2">SERVICE 1</td>
+<td id="p2">SERVICE 2</td>
+<td id="p2">SERVICE 3</td>
+<td id="p2">REQUEST</td>
 
 </tr>
 
@@ -27,8 +48,8 @@ echo "<tr>";
 							echo "<td>".$s["Request"]."</td>";
 						
 							echo '<td><a href="UpdateServiceStatus.php?id='.$s['ID'].'">Update</a></td>';
-							echo '<td><a href="ReportGenerate.php?id='.$s['ID'].'">Generate Report</a></td>';
-							echo '<td><a href="DownloadReport.php?id='.$s['ID'].'">Download Report</a></td>';
+							echo '<td><a href="ReportGenerate.php?id='.$s['ID'].'">Generate Report & Download</a></td>';
+							
 							
 						echo "</tr>";
 						$i++;

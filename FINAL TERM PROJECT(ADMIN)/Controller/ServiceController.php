@@ -29,14 +29,16 @@ include 'Model/db_config.php';
 		header("Location: All_Service.php");
 
 	}
-	else if (isset($_POST["backDashboard"])){
-		header("Location: AdminDashboard.php");
-
+	
+	
+	
+	
+	
+	function getAllFeedback(){
+		$query = "select * from user";
+		$rs = get($query);
+		return $rs;
 	}
-	
-	
-	
-	
 
 	function getAllService(){
 		$query = "select * from service";

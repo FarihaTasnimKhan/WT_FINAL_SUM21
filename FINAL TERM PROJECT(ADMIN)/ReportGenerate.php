@@ -19,7 +19,10 @@ $servicer=getServiceForReport($id);
         text-align: center;
       }
     </style>
-	</head><body><div class="img-container"><img  width="100px" height="100px" src="images.jpg"></div>
+	
+	</head>
+	<html><br><br><a href="AdminDashboard.php">GO BACK TO ADMIN DASHBOARD</a>	
+	<body><div class="img-container"><img  width="100px" height="100px" src="images.jpg"></div>
 	<div class="name"><h3>TICKET MANAGEMENT SYSTEM OFFICIAL CUSTOMER SERVICE REPORT</h3></div>
 	
 	
@@ -75,6 +78,7 @@ echo "<tr>";
 
 
 
-<td><a href="All_Service.php">GO BACK TO DOWNLOAD THIS REPORT</a></td>
 
+<p align="center"><button onclick="window.print()" >Download Report</button></p>
 </body></html>
+

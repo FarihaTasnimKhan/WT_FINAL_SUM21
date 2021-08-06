@@ -4,8 +4,39 @@ $manager=getAllManager();
 
 ?>
 
-<html><head><title>ALL MANAGER</title></head><body><h2>ALL REGISTERED MANAGER DETAILS</h2><fieldset>
-<form> <table><table align="center" >
+<html><head>
+
+<title>ALL MANAGER</title></head><body><h2 id="p1">ALL REGISTERED MANAGER DETAILS</h2><fieldset>
+<form>
+
+<style>
+
+#p1{
+color:blue;
+}
+
+body {
+ text-align: center;
+ background-color: #caebe0;
+}
+.btn-link{
+	
+	background-color:rgb(73,127,175);
+	color:white;
+	padding-left:20px;
+	padding-right:20px;
+	padding-top:10px;
+	padding-bottom:10px;
+	border-radius:2px;
+	font-family:calibri;
+	text-decoration:none;
+}
+	
+</style>
+	
+
+
+ <table><table align="center" >
 				
 <tr><td>NO.</td>
 <td>NAME</td>
@@ -37,4 +68,9 @@ echo "<tr>";
 }
 
 ?>
-</table></form></fieldset></body></html>
+</table></form></fieldset>
+<a href="AdminDashboard.php"class="btn-link">GO BACK TO ADMIN DASHBOARD</a>
+
+</body>
+
+</html>

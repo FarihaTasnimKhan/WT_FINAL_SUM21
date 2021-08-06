@@ -5,23 +5,38 @@
 	
 ?>
 
-<html>
-	<body>
+<html><title>DELETE MANAGER</title>
+<style>
+
+#p1{
+color:blue;
+}
+
+body {
+ text-align: center;
+ background-color: #caebe0;
+}
+
+	
+</style>
+	<body><h2 id="p1">DELETE MANAGER</h3>
+	<fieldset>
 	<h1><?php echo $db_err;?></h1>
 		<form action="" method="POST">
 			<table align="center">
 				<tr>
 					<td>
 					<input type="hidden" value="<?php echo $id?>" name="id">
-					<input type="text" name="name" value="<?php echo $c["Name"];?>" placeholder="Category name">
+					<b>NAME:<input type="text" name="name" value="<?php echo $c["Name"];?>" placeholder="Category name">
 					</td>
 				</tr>
 				<tr>
 					<td align="center">
-						<input type="submit" name="delete" value="Delete Category">
+						<input type="submit" name="delete" value="Delete Manager Details">
 					</td>
 				</tr>
 			</table>
-		</form>
+		</form></fieldset>
+			<a href="All_Manager.php">GO BACK TO ALL MANAGER DETAILS</a>
 	</body>
 </html>

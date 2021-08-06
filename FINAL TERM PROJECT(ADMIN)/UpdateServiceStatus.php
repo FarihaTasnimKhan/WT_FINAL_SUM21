@@ -6,6 +6,20 @@ $id= $_GET["id"];
 $s = getService($id);
 ?>
 <html>
+<style>
+
+#p1{
+color:blue;
+}
+
+body {
+ text-align: center;
+ background-color: #caebe0;
+}
+
+	
+</style>
+<h2 id="p1">UPDATE SERVICE STATUS</h2>
 <fieldset>
 	<body>
 	
@@ -29,5 +43,7 @@ $s = getService($id);
 					</td></tr>
 			</table>
 		</form>
-	</body></fieldset>
+		</fieldset>
+
+	</body>
 </html>

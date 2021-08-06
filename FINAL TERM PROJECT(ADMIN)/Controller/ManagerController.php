@@ -21,7 +21,7 @@ include 'Model/db_config.php';
 	$err=false;
 	$err_message="";
 	$message="";
-
+$hasError=false;
 	
 	if(isset($_POST["add_manager"])){
 		
@@ -36,8 +36,8 @@ include 'Model/db_config.php';
 			$err_uname="Username Required.";
 			$err = true;
 		}
-		else if(strlen($_POST["username"])<=6){
-			$err_uname="Your USERNAME MUST be greater than 6 letters.";
+		else if(strlen($_POST["username"])<=2){
+			$err_uname="Your USERNAME MUST be greater than 2 letters.";
 			$err = true;
 		}
 		else if(strpos($_POST["username"]," ")){
@@ -90,7 +90,7 @@ include 'Model/db_config.php';
 			if($rs === true){
 			//	var_dump(); 
 			//echo "Manager Added.";
-			header("Location: AdminDashboard.php");
+			header("Location: All_Manager.php");
 			}
 			echo $rs;
 			
@@ -118,15 +118,18 @@ include 'Model/db_config.php';
 				//session_start();
 				//$_SESSION["loggeduser"] = $_POST["username"];
 				
+			
 				header("Location: AdminDashboard.php");
 			}
-			$err_db = "Username Invalid";
+			//$err_db = "Username Invalid";
+			echo "INVALID USERNAME.";
 		}
 	}
-	else if (isset($_POST["back"])){
-		header("Location: AdminDashboard.php");
-
-	}
+	
+	
+	
+	
+	
 	else if(isset($_POST["sendmessage"])){
 		
 		if(empty($_POST["username"])){
@@ -154,7 +157,7 @@ include 'Model/db_config.php';
 			}
 			
 			}
-			else{echo "UNSUCCESSFUL.";}
+			else{echo "UNSUCCESSFUL!!!<br>INVALID USERNAME.";}
 			
 					
 			
@@ -173,7 +176,7 @@ include 'Model/db_config.php';
 	}
 	else if(isset($_POST["delete"]))
 	{
-		$rs = deleteManager($_POST["ID"]);
+		$rs = deleteManager($_POST["id"]);
 		
 		if($rs == true)
 		{
